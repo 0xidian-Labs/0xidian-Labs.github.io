@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>0xidian Labs - Web3 Growth Partner</title>
+    
+    <!-- Google AdSense Verification Code -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-665135323292666&crossorigin='anonymous'"></script>
+    
     <style>
         /* Base Styles */
         :root {
@@ -21,7 +25,7 @@
             /* Light Mode Colors */
             --primary-light: #f8f9fa;
             --secondary-light: #212529;
-            --accent-light: #6e45e2; /* Keeping same accent color */
+            --accent-light: #6e45e2;
             --accent-light-light: #8d6eff;
             --accent-dark-light: #4d2dba;
             --text-light: rgba(33, 37, 41, 0.95);
@@ -228,7 +232,7 @@
         .btn {
             display: inline-block;
             background: linear-gradient(135deg, var(--accent), var(--accent-light));
-            color: var(--secondary-dark); /* Always white text on buttons */
+            color: var(--secondary-dark);
             font-family: 'Alumni Sans SC', sans-serif;
             font-weight: 600;
             letter-spacing: 1px;
@@ -649,7 +653,7 @@
             }
 
             #theme-text {
-            display: none;
+                display: none;
             }
 
             .theme-toggle {
@@ -663,9 +667,8 @@
                 font-size: 1.2rem;
             }
         }
-
-
     </style>
+    
     <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:wght@400;600;700&family=Anton&family=Anton+SC&family=Big+Shoulders+Display:wght@400;600&family=Bebas+Neue&family=Hedvig+Letters+Serif&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -680,7 +683,7 @@
         </div>
     </header>
 
-    <!-- Hero Section with Updated Text -->
+    <!-- Hero Section -->
     <section id="hero">
         <div class="hero-bg"></div>
         <div class="container">
@@ -817,11 +820,9 @@
         const themeText = document.getElementById('theme-text');
         const html = document.documentElement;
 
-        // Check for saved theme preference or use preferred color scheme
         const savedTheme = localStorage.getItem('theme') || 
                           (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
         
-        // Apply the saved theme
         if (savedTheme === 'light') {
             html.setAttribute('data-theme', 'light');
             themeIcon.textContent = '🌞';
@@ -832,7 +833,6 @@
             themeText.textContent = 'Dark Mode';
         }
 
-        // Toggle theme on button click
         themeToggle.addEventListener('click', () => {
             if (html.getAttribute('data-theme')) {
                 html.removeAttribute('data-theme');
@@ -846,7 +846,6 @@
                 themeText.textContent = 'Light Mode';
             }
         });
-
 
         // Header scroll effect
         const header = document.getElementById('main-header');
@@ -864,7 +863,6 @@
         const closeModalBtn = document.querySelector('.close-modal');
         const contactForm = document.getElementById('contact-form');
 
-        // Open modal
         openModalBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 document.body.classList.add('modal-open');
@@ -872,13 +870,11 @@
             });
         });
 
-        // Close modal
         closeModalBtn.addEventListener('click', () => {
             document.body.classList.remove('modal-open');
             modal.classList.remove('active');
         });
 
-        // Close when clicking outside modal
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 document.body.classList.remove('modal-open');
@@ -886,19 +882,14 @@
             }
         });
 
-        // Form submission
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            
-            // Here you would typically send the form data to your server
-            // For demonstration, we'll just show an alert and close the modal
             alert('Thank you for your submission! We will contact you soon.');
             document.body.classList.remove('modal-open');
             modal.classList.remove('active');
             contactForm.reset();
         });
 
-        // Close with Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && modal.classList.contains('active')) {
                 document.body.classList.remove('modal-open');
